@@ -8,10 +8,10 @@ class OrdersProductsController < ApplicationController
   end
 
   def destroy
+    @order = current_order
     product_to_delete = nil
     OrdersProduct.all.each do |item|
-      if params[:id] === item.product_id
-        binding.pry
+      if params[:id].to_i == item.product_id
         product_to_delete = item
       end
     end
