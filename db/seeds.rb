@@ -16,4 +16,6 @@ pots = [
   )
 end
 
+User.create(email: "admin@admin", password: "1234567", password_confirmation: "1234567", admin: true)
+
 p "made #{Product.count} products"

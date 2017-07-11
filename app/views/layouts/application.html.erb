@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ECommerce</title>
+    <title>E Commerce</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -34,6 +34,7 @@
         </div>
         <div class="col-sm-9">
           <p class="red"><%= flash[:alert] %></p>
+          <p class="green"><%= flash[:notice] %></p>
 
           <%= yield %>
         </div>

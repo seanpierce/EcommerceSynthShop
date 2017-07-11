@@ -33,6 +33,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'faker', github: 'stympy/faker'
 gem 'rails_admin', '~> 1.2'
 gem 'devise'
+gem 'stripe'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem "factory_girl_rails", "~> 4.0"
   gem 'simplecov', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do

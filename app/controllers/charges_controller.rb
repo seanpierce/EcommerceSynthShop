@@ -5,7 +5,11 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = (current_order.total_price * 100).to_i
+    order = current_order
+    order.status = "processing"
+    order.save
+    current_order
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -18,10 +22,12 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
+    flash[:notice] = "Thanks! You paid $#{(@amount / 100).round(2)}."
+    redirect_to root_path
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    rescue Stripe::CardError => e
+      flash[:alert] = e.message
+      redirect_to root_path
   end
 
 end
