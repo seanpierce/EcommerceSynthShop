@@ -32,7 +32,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'faker', github: 'stympy/faker'
 gem 'rails_admin', '~> 1.2'
-
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

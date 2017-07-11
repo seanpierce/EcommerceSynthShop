@@ -19,12 +19,24 @@
               <% if session['order_id'] %>
                 <li><%= link_to "Cart (#{@item_count}) ", cart_path(current_order) %> </li>
               <% end %>
-              <li>Log In</li>
-              <li>Sign Up</li>
+              <% if current_user %>
+                <% if current_user.admin %>
+                  <li><%= link_to "Admin", rails_admin_path %></li>
+                <% end %>
+                <li><%= current_user.email %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
+              <% else %>
+                <li><%= link_to "Log In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <% end %>
+
+
             </ul>
           </div>
         </div>
         <div class="col-sm-9">
+          <p class="red"><%= flash[:alert] %></p>
+
           <%= yield %>
         </div>
       </div>
