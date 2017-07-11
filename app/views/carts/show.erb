@@ -2,12 +2,21 @@
 <ul class="cart-items">
   <% @cart.each do |item| %>
     <% @product = Product.find(item.product_id) %>
-    <li><%= link_to "X", cart_path(item.product_id), :data => {:confirm => "You sure?", :method => "delete"}, class: "red" %>  <%= @product.name %>
-      <div> Unit Price: <%= number_to_currency @product.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (@product.price * item.quantity) %></div></li>
+    <li class="row"><%= link_to "X", cart_path(item.product_id), :data => {:confirm => "You sure?", :method => "delete"}, class: "red" %>
+    <strong><%= @product.name %></strong>
+      <div class="right">
+        Unit Price: <%= number_to_currency @product.price %>
+        <br>
+        Quantity: <%= item.quantity %>
+        <br>
+        Total Price: <%= number_to_currency (@product.price * item.quantity) %>
+      </div>
+
+    </li>
   <% end %>
 </ul>
 
-  <p><strong>Your Total: <%= number_to_currency current_order.total_price %></strong></p>
+  <p class="total"><strong>Your Total: <%= number_to_currency current_order.total_price %></strong></p>
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
