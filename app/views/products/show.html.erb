@@ -5,12 +5,14 @@
   <div class="col-sm-6">
     <h1><%= @product.name %></h1>
     <p><%= @product.description %></p>
-    <%= form_for @cart do |f| %>
-    <%= f.hidden_field :product_id, value: @product.id %>
-    <%= f.number_field :quantity, placeholder: "Quantity" %>
-    <%= f.submit "Add to cart", class: "cart" %>
-
-
+    <% if current_user %>
+      <%= form_for @cart do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.number_field :quantity, placeholder: "Quantity" %>
+        <%= f.submit "Add to cart", class: "cart" %>
+      <% end %>
+    <% else %>
+      <em><%= link_to "Log in", new_user_session_path %> to purchase this product</em>
     <% end %>
   </div>
 </div>

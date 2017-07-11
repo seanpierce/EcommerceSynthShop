@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :carts
+  belongs_to :user
   # validates :status, :account_id, :total_price, :presence => true
 
   before_save :update_total
@@ -17,7 +18,7 @@ private
 
  def update_status
    if self.status == nil?
-     self.status = "In progress"
+     self.status = "pending"
    end
  end
 
