@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :orders_products
+  has_many :carts
   # validates :status, :account_id, :total_price, :presence => true
 
   before_save :update_total
@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   def calculate_total
     products = []
-    self.orders_products.each do |item|
+    self.carts.each do |item|
       products.push([Product.find(item.product_id), item.quantity])
     end
     products.collect { |product_info| product_info[0].price * product_info[1].to_i }.sum

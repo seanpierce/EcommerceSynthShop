@@ -11,7 +11,21 @@
 
   <body>
     <div class="container">
-      <%= yield %>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="my-nav">
+            <ul>
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Cart", cart_path(current_order) %></li>
+              <li>Log In</li>
+              <li>Sign Up</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

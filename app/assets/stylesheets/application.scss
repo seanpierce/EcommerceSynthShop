@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-ul {
+.cart-items {
   list-style: none;
   padding: 0;
   li {
@@ -10,4 +10,23 @@ ul {
       background-color: #f3f3f3;
     }
   }
+}
+.red {
+  color: red;
+  &:hover {
+    color: red;
+    text-decoration: none;
+  }
+}
+.my-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.product {
+  display: inline;
+  width: auto;
+}
+
+body {
+  margin-top: 3em;
 }
