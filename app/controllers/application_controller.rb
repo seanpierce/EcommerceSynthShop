@@ -1,4 +1,8 @@
+require 'dotenv/load'
+
 class ApplicationController < ActionController::Base
+
+
   protect_from_forgery with: :exception
   helper_method :current_order
   helper_method :pending_order
