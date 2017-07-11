@@ -3,7 +3,9 @@
     <div class="product" style="background-image:url(<%= product.image %>)">
       <div class="darken"></div>
       <div class="product-content">
-        <%= product.name %> | <%= number_to_currency product.price %>
+        <%= product.name %>
+        <br>
+        <%= number_to_currency product.price %>
       </div>
     </div>
   </a>

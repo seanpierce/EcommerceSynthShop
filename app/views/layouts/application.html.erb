@@ -16,7 +16,9 @@
           <div class="my-nav">
             <ul>
               <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Cart", cart_path(current_order) %></li>
+              <% if session['order_id'] %>
+                <li><%= link_to "Cart (#{@item_count}) ", cart_path(current_order) %> </li>
+              <% end %>
               <li>Log In</li>
               <li>Sign Up</li>
             </ul>

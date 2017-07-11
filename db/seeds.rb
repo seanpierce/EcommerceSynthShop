@@ -10,7 +10,7 @@ pots = [
 20.times do
   Product.create!(
     price: rand(1...30),
-    name: Faker::Name.title,
+    name: "#{Faker::Demographic.race} potatoe",
     description: Faker::Hipster.sentences.join(' '),
     image: pots.sample
   )
