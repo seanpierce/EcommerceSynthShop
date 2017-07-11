@@ -23,10 +23,39 @@
   padding: 0;
 }
 .product {
-  display: inline;
-  width: auto;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  display: inline-block;
+  min-width: 150px;
+  min-height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .darken {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height:100%;
+    z-index: 0;
+  }
+  .product-content {
+    z-index: 2;
+    color: white;
+    position: absolute;
+    input {
+      color: black;
+    }
+  }
+  .product-form {
+    form {
+      display: inline-block;
+      color: red;
+    }
+  }
 }
-
 body {
   margin-top: 3em;
 }

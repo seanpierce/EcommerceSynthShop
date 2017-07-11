@@ -1,10 +1,10 @@
 <% @products.each do |product| %>
-  <div class="product">
-    <%= product.name %> | <%= number_to_currency product.price %>
-    <%= form_for @cart do |f| %>
-      <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.number_field :quantity %>
-      <%= f.submit "Add to cart" %>
-    <% end %>
-  </div>
+  <a href="<%= product_path(product) %>">
+    <div class="product" style="background-image:url(<%= product.image %>)">
+      <div class="darken"></div>
+      <div class="product-content">
+        <%= product.name %> | <%= number_to_currency product.price %>
+      </div>
+    </div>
+  </a>
 <% end %>
