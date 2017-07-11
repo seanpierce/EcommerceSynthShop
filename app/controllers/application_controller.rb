@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :pending_order
 
 
-  def current_order
+  def current_order #TODO "Who Carted?"
     if session[:order_id]
       order = Order.find(session[:order_id])
       @item_count = order.carts.count
