@@ -2,6 +2,11 @@ class CartsController < ApplicationController
   def create
     @order = current_order
     @item = @order.carts.new(product_params)
+
+    if @item.item_in_cart?(current_order)
+      @item.item_in_cart?(current_order)[0].quantity += @item.quantity
+      @item.destroy
+    end
     @order.save
     session[:order_id] = @order.id
     redirect_to products_path

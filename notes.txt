@@ -1,1 +1,3 @@
 https://launchschool.com/blog/basic-paypal-checkout-processing-in-rails
+
+CART DUPLICATE ITEM QUANTITY BUG
