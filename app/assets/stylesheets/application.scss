@@ -6,6 +6,8 @@
   padding: 0;
   li {
     padding: 0.5em;
+    border-left: solid 1px #c4c4c4;
+    border-bottom: solid 1px #c4c4c4;
     &:nth-child(odd) {
       background-color: #f3f3f3;
     }

@@ -21,7 +21,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = current_order.carts
+    @cart = current_order.carts.order(:created_at)
     products = []
     current_order.carts.each do |item|
       products.push([Product.find(item.product_id), item.quantity])

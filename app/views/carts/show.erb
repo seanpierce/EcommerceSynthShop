@@ -7,7 +7,7 @@
       <div class="right">
         Unit Price: <%= number_to_currency @product.price %>
         <br>
-        Quantity: <%= item.quantity %> <%= link_to "⇧",  {controller: "carts", action: "add_one", item: item}, method: "post" %><%= link_to "⇩", {controller: "carts", action: "remove_one", item: item}, method: "post" %>
+        Quantity: <%= item.quantity %> <%= link_to "⇧",  {controller: "carts", action: "add_one", item: item}, method: "post", remote: true %><%= link_to "⇩", {controller: "carts", action: "remove_one", item: item}, method: "post", remote: true %>
         <br>
         Total Price: <%= number_to_currency (@product.price * item.quantity) %>
       </div>
@@ -16,8 +16,11 @@
   <% end %>
 </ul>
 
-  <p class="total"><strong>Your Total: <%= number_to_currency current_order.total_price %></strong></p>
-  <%= link_to "checkout", new_charge_path %>
+  <div class="total">
+    <p class="total"><strong>Your Total: <%= number_to_currency current_order.total_price %></strong></p>
+    <p>__________________</p>
+    <%= link_to "checkout", new_charge_path%>
+  </div>
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
