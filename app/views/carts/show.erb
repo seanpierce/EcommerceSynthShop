@@ -2,12 +2,12 @@
 <ul class="cart-items">
   <% @cart.each do |item| %>
     <% @product = Product.find(item.product_id) %>
-    <li class="row"><%= link_to "X", cart_path(item.product_id), :data => {:confirm => "You sure?", :method => "delete"}, class: "red" %>
+    <li class="row"><%= link_to "X", cart_path(item.product_id), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, class: "red delete", id: "item_#{item.id}" %>
     <strong><%= @product.name %></strong>
       <div class="right">
         Unit Price: <%= number_to_currency @product.price %>
         <br>
-        Quantity: <%= item.quantity %>
+        Quantity: <%= item.quantity %> <%= link_to "⇧",  {controller: "carts", action: "add_one", item: item}, method: "post" %><%= link_to "⇩", {controller: "carts", action: "remove_one", item: item}, method: "post" %>
         <br>
         Total Price: <%= number_to_currency (@product.price * item.quantity) %>
       </div>

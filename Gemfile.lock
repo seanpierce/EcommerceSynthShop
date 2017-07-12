@@ -11,9 +11,9 @@ GIT
 
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 181986701dc82b430d96b2a3f4e9c2f42a12a60d
+  revision: e4b3c6095357fea9521f78dca928550e3a62c948
   specs:
-    faker (1.8.2)
+    faker (1.8.3)
       i18n (~> 0.5)
 
 GIT
@@ -66,7 +66,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.1)
+    autoprefixer-rails (7.1.2.2)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -270,7 +270,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stripe (3.0.0)
+    stripe (3.0.1)
       faraday (~> 0.9)
     temple (0.8.0)
     thor (0.19.4)

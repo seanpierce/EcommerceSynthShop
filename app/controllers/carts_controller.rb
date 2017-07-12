@@ -17,7 +17,7 @@ class CartsController < ApplicationController
     end
     product_to_delete.destroy
     @order.save
-    redirect_to cart_path
+    redirect_to cart_path(current_order)
   end
 
   def show
@@ -27,6 +27,22 @@ class CartsController < ApplicationController
       products.push([Product.find(item.product_id), item.quantity])
     end
     current_order.total_price = products.collect { |product_info| product_info[0].price * product_info[1].to_i }.sum
+  end
+
+  def add_one
+    item = Cart.find(params['item'])
+    item.quantity += 1
+    item.save
+    current_order.save
+    redirect_to cart_path(item)
+  end
+
+  def remove_one
+    item = Cart.find(params['item'])
+    item.quantity -= 1
+    item.save
+    current_order.save
+    redirect_to cart_path(item)
   end
 
 private
