@@ -18,7 +18,19 @@ $ bundle install
 $ rails db:setup
 $ rails s
 ```
+
 visit <a href="https://localhost:3000">localhost:3000</a> in your browser
+
+### Stripe Setup
+* In the root directory create a file called .env
+* Make an account at <a href="https://stripe.com/">stripe</a>
+* Save you public and secret keys in the .env like so:
+
+```
+PUB_KEY = "public key"
+SEC_KEY = "secret key"
+```
+
 
 ### Authors
 Sean Pierce, Tanner Eustice

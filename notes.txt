@@ -10,14 +10,14 @@ develop "purchased with" method √
 paginate √
 
 Thursday after lunch 🤗
-README
+README √
   > with instructions to setup stripe
 validations
 testing
-refactor seeds to be more prof'
+refactor seeds to be more prof' √
 styling? < less important
 STRIPE IT √
 make M'prof -Sean √
 
 Later TODO:
-refactor purchased with method into a PORO
+refactor purchased with method into a PORO (I put it in product) √
