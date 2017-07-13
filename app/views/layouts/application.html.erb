@@ -23,7 +23,7 @@
                 <% if current_user.admin %>
                   <li><%= link_to "Admin", rails_admin_path %></li>
                 <% end %>
-                <li><%= current_user.email %></li>
+                <li><%= link_to current_user.email, profile_path %></li>
                 <li><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
               <% else %>
                 <li><%= link_to "Log In", new_user_session_path %></li>

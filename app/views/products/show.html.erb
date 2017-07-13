@@ -1,9 +1,15 @@
+<%= tag.div id: "img-modal", onclick: "$(this).hide();" do %>
+  <div id="img-modal-inner">
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-sm-6">
-    <img src="<%= @product.image %>" class="product-detail">
+    <%= image_tag(@product.image, class: "product-detail", onclick: "imageModal('#{@product.image}')") %>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-6 product-info">
     <h1><%= @product.name %></h1>
+    <p><strong><%= number_to_currency @product.price %></strong></p>
     <p><%= @product.description %></p>
     <% if current_user %>
       <%= form_for @cart do |f| %>
@@ -14,11 +20,12 @@
     <% else %>
     <em><%= link_to "Log in", new_user_session_path %> to purchase this product</em>
     <% end %>
+    <%= link_to "Back to catalog", products_path %>
     <hr>
     <p>People who purchased this also purchased:</p>
     <% @purchased_with.each do |item| %>
       <a href="<%= product_path(item) %>">
-        <div class="row">
+        <div class="row also-purchased">
           <div class="col-xs-1">
             <div class="image-little" style="background-image:url(<%= item.image %>)"></div>
           </div>

@@ -25,4 +25,7 @@ private
  def update_total
    self.total_price = calculate_total
  end
+
+ validates :user_id, :presence => true
+
 end

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
 
   resources :charges
+  # resources :pages
+
+  get '/profile', to: "pages#show"
 
   post '/add_one/:id', to: "carts#add_one"
   post '/remove_one/:id', to: "carts#remove_one"

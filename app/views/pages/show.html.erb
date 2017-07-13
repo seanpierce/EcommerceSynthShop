@@ -1,0 +1,12 @@
+<p><%= current_user.email %></p>
+
+<strong>Your purchased products:</strong>
+<ul>
+  <% @products.each do |product| %>
+    <a href="<%= product_path(product) %>">
+      <li>
+        <span><%= product.name %></span>
+      </li>
+    </a>
+  <% end %>
+</ul>

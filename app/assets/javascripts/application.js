@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var imageModal = function(image) {
+  $('#img-modal').show();
+  $('#img-modal-inner').html(
+    `<img src="${image}">`
+  )
+}

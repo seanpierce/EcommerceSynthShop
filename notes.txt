@@ -16,5 +16,5 @@ validations
 testing
 refactor seeds to be more prof'
 styling? < less important
-STRIPE IT
-make M'prof -Sean
+STRIPE IT √
+make M'prof -Sean √

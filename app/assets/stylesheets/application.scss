@@ -119,6 +119,7 @@ input[type="number"] {
 
 .product-detail {
   width: 100%;
+  cursor: pointer;
 }
 
 .cart {
@@ -134,4 +135,37 @@ input[type="number"] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.product-info h1 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.also-purchased {
+  margin-bottom: 0.5em;
+}
+#img-modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  #img-modal-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    img {
+      width: 100%;
+    }
+  }
 }
