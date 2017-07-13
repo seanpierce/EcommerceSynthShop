@@ -1,9 +1,20 @@
-https://launchschool.com/blog/basic-paypal-checkout-processing-in-rails
+https://launchschool.com/blog/basic-paypal-checkout-processing-in-rails < using stripe instead
 
-CART DUPLICATE ITEM QUANTITY BUG
+CART DUPLICATE ITEM QUANTITY BUG √
 
 Thursday steps:
-Fix duplicate item bug
-fix "other bug"
+Fix duplicate item bug √
+fix "other bug" √
 
-develop "purchased with" method
+develop "purchased with" method √
+paginate √
+
+Thursday after lunch 🤗
+README
+  > with instructions to setup stripe
+validations
+testing
+refactor seeds to be more prof'
+styling? < less important
+STRIPE IT
+make M'prof -Sean

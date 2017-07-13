@@ -5,11 +5,22 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
+
+    current_order.carts.each do |item, i|
+      current_order.carts.each do |item_to_add, n|
+        if i != n
+          item.purchased_with << "#{item_to_add.id},"
+        end
+      end
+      item.save
+    end
+
     @amount = (current_order.total_price * 100).to_i
     order = current_order
     order.status = "processing"
     order.save
     current_order
+
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
