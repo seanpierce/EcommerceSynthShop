@@ -1,11 +1,13 @@
 class CartsController < ApplicationController
   def create
     @order = current_order
-    @item = @order.carts.new(product_params)
-
-    if @item.item_in_cart?(current_order)
-      @item.item_in_cart?(current_order)[0].quantity += @item.quantity
-      @item.destroy
+    @item = @order.carts.find_or_initialize_by(product_id: params['cart']['product_id'])
+    if @item.quantity != nil
+      @item.quantity += params['cart']['quantity'].to_i
+      @item.save
+    else
+      @item.quantity = params['cart']['quantity']
+      @item.product_id = params['cart']['product_id']
     end
     @order.save
     session[:order_id] = @order.id
