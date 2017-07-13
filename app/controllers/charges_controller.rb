@@ -4,18 +4,10 @@ class ChargesController < ApplicationController
   end
 
   def create
+    # Add items to purchased_with, for "people who bought this also bought:"
+    Order.add_to_puchased_with(current_order)
+
     # Amount in cents
-
-    # TODO refactor this method to exist within a PORO
-    current_order.carts.each do |item, i|
-      current_order.carts.each do |item_to_add, n|
-        if i != n
-          item.purchased_with << "#{item_to_add.id},"
-        end
-      end
-      item.save
-    end
-
     @amount = (current_order.total_price * 100).to_i
     order = current_order
     order.status = "processing"
