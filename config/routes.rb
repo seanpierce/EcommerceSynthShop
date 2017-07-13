@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   post '/add_one/:id', to: "carts#add_one"
   post '/remove_one/:id', to: "carts#remove_one"
+  post '/reset_cart/:id', to: "carts#reset_cart"
 
 end

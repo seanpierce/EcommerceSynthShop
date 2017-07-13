@@ -52,6 +52,26 @@ class CartsController < ApplicationController
     redirect_to cart_path(item)
   end
 
+  def reset_cart
+    # this happens in ChargesController
+    flash[:notice] = "Thanks for placing your order. It is now processing."
+    order = current_order
+    order.status = "processing"
+    order.save
+    current_order
+
+    cart = Cart.find(params['cart'])
+    cart.each do |item, i|
+      cart.each do |item_to_add, n|
+        if i != n
+          item.purchased_with << "#{item_to_add.id},"
+        end
+      end
+      item.save
+    end
+    redirect_to '/'
+  end
+
 private
   def product_params
     params.require(:cart).permit(:quantity, :product_id)

@@ -128,3 +128,10 @@ input[type="number"] {
   background-repeat: no-repeat;
   text-indent: 22px;
 }
+.image-little {
+  width: 2em;
+  height: 2em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

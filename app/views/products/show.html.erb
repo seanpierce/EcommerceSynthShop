@@ -7,12 +7,26 @@
     <p><%= @product.description %></p>
     <% if current_user %>
       <%= form_for @cart do |f| %>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.number_field :quantity, placeholder: "Quantity" %>
-        <%= f.submit "Add to cart", class: "cart" %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.number_field :quantity, placeholder: "Quantity" %>
+      <%= f.submit "Add to cart", class: "cart" %>
       <% end %>
     <% else %>
-      <em><%= link_to "Log in", new_user_session_path %> to purchase this product</em>
+    <em><%= link_to "Log in", new_user_session_path %> to purchase this product</em>
+    <% end %>
+    <hr>
+    <p>People who purchased this also purchased:</p>
+    <% @purchased_with.each do |item| %>
+      <a href="<%= product_path(item) %>">
+        <div class="row">
+          <div class="col-xs-1">
+            <div class="image-little" style="background-image:url(<%= item.image %>)"></div>
+          </div>
+          <div class="col-xs-11">
+            <%= item.name %>
+          </div>
+        </div>
+      </a>
     <% end %>
   </div>
 </div>

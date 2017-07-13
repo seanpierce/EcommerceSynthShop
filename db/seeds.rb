@@ -11,14 +11,23 @@ pots = [
   "http://ladysmithgazette.co.za/wp-content/uploads/sites/64/2016/02/bag-of-potatoes-potbag1.jpg",
   "http://s.hswstatic.com/gif/potato-questions-1.jpg"
 ]
-
+products = []
 30.times do
-  Product.create!(
+  product = Product.create!(
     price: rand(1...30),
     name: "#{Faker::Demographic.race} potatoe",
     description: Faker::Hipster.sentences.join(' '),
-    image: pots.sample
+    image: pots.sample,
+    purchased_with: ""
   )
+  products.push(product)
+end
+
+30.times do
+  products.each do |product|
+    product.purchased_with << "#{products.sample.id},"
+    product.save
+  end
 end
 
 User.create(email: "admin@admin", password: "1234567", password_confirmation: "1234567", admin: true)

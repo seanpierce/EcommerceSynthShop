@@ -19,7 +19,8 @@
   <div class="total">
     <p class="total"><strong>Your Total: <%= number_to_currency current_order.total_price %></strong></p>
     <p>__________________</p>
-    <%= link_to "checkout", new_charge_path%>
+    <%= link_to "checkout", new_charge_path, style: "display: none"%>
+    <%= link_to "checkout", {controller: "carts", action: "reset_cart", cart: @cart.ids }, method: "post" %>
   </div>
 <% else %>
   <p>Your shopping cart is empty.</p>
