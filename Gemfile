@@ -34,6 +34,7 @@ gem 'faker', github: 'stympy/faker'
 gem 'rails_admin', '~> 1.2'
 gem 'devise'
 gem 'stripe'
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

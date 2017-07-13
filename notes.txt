@@ -18,3 +18,6 @@ refactor seeds to be more prof'
 styling? < less important
 STRIPE IT √
 make M'prof -Sean √
+
+Later TODO:
+refactor purchased with method into a PORO

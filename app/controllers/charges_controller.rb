@@ -6,6 +6,7 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
 
+    # TODO refactor this method to exist within a PORO
     current_order.carts.each do |item, i|
       current_order.carts.each do |item_to_add, n|
         if i != n

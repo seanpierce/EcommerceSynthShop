@@ -1,23 +1,40 @@
-pots = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg",
-  "http://www.valleyspuds.com/wp-content/uploads/Russet-Potatoes-cut.jpg",
-  "http://images.scrippsnetworks.com/up/tp/Scripps_-_Food_Category_Prod/64/647/0227360_630x355.jpg",
-  "http://cdn1.medicalnewstoday.com/content/images/articles/280/280579/potatoes.jpg",
-  "http://101healthybody.com/images/photo/Potato.jpg",
-  "http://www.seriouseats.com/images/2014/11/20141116-salt-roasted-potatoes-recipe-02.jpg",
-  "https://cdn.authoritynutrition.com/wp-content/uploads/2015/03/a-bunch-of-white-potatoes.jpg",
-  "http://clv.h-cdn.co/assets/15/41/tk-blog-scalloped-hasselback-potatoes-11.jpg",
-  "http://ralp.net/potatoes/img/potato.jpg",
-  "http://ladysmithgazette.co.za/wp-content/uploads/sites/64/2016/02/bag-of-potatoes-potbag1.jpg",
-  "http://s.hswstatic.com/gif/potato-questions-1.jpg"
-]
+synths = []
+last_index_img = 0;
+last_index_name = 0;
+last_index_price = 0;
+3.times do |i|
+  page = Nokogiri::HTML(open("http://www.dawsons.co.uk/keyboards-pianos/synthesizers?p=#{i + 1}"))
+  page.css('.category-products ul li a img').each do |el|
+     synths.push({id: last_index_img, img: el["src"]})
+     last_index_img += 1
+  end
+  page.css('.product-info .product-name a').each do |el|
+    synths.each do |synth|
+      if synth[:id].to_i === last_index_name
+        synth[:name] = el.text.to_s
+      end
+    end
+    last_index_name += 1
+  end
+  page.css('.product-info .price-box .price').each do |el|
+    synths.each do |synth|
+      if synth[:id].to_i === last_index_price
+        synth[:price] = el.text.to_s.gsub(/[£]/, '')
+      end
+    end
+    last_index_price += 1
+  end
+end
+
+puts synths
+
 products = []
-30.times do
+synths.each do |synth|
   product = Product.create!(
-    price: rand(1...30),
-    name: "#{Faker::Demographic.race} potatoe",
+    price: synth[:price].to_i,
+    name: synth[:name],
     description: Faker::Hipster.sentences.join(' '),
-    image: pots.sample,
+    image: synth[:img],
     purchased_with: ""
   )
   products.push(product)
