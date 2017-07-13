@@ -39,4 +39,11 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def authorize_user
+    if !current_user
+      flash[:alert] = "Please log in to access this page"
+      redirect_back(fallback_location: products_path)
+    end
+  end
 end

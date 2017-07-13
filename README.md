@@ -1,6 +1,6 @@
 # Rails Online Store
 
-Rails Online Store is a <a href="http://rubyonrails.org/">Ruby on Rails</a> application which demonstrates the core functionality of an e-commerce web shop. Authorized users can browse items, add items to their cart, and purchase a product using <a href="https://stripe.com/">stripe</a>. Shop admins can add, edit, or remove products, managing file uploads with <a href="https://github.com/thoughtbot/paperclip">paperclip</a>.
+Rails Online Store is a <a href="http://rubyonrails.org/">Ruby on Rails</a> application which demonstrates the core functionality of an e-commerce web shop. Authorized users can browse items, add items to their cart and purchase a product using <a href="https://stripe.com/">stripe</a>. Shop admins can add, edit or remove products, managing file uploads with <a href="https://github.com/thoughtbot/paperclip">paperclip</a>.
 
 ### Dependencies
 * Ruby >= 2.3.1
