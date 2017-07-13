@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.all.page params[:page]
 
     if current_user
       @cart = current_order.carts.new
