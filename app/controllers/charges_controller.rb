@@ -5,10 +5,12 @@ class ChargesController < ApplicationController
 
   def create
     # Add items to purchased_with, for "people who bought this also bought:"
-    Order.add_to_puchased_with(current_order)
+    Product.add_to_puchased_with(current_order)
 
     # Amount in cents
     @amount = (current_order.total_price * 100).to_i
+
+    # update the order
     order = current_order
     order.status = "processing"
     order.save
