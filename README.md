@@ -6,7 +6,6 @@ Rails Online Store is a <a href="http://rubyonrails.org/">Ruby on Rails</a> appl
 * Ruby >= 2.3.1
 * Rails >= 5.1.2
 * postgres
-* postgres
 * bundler
 
 ### Installation
