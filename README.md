@@ -30,6 +30,10 @@ PUB_KEY = "public key"
 SEC_KEY = "secret key"
 ```
 
+### Views
+<img src="screen-shot-1.png">  
+<img src="screen-shot-2.png">  
+<img src="screen-shot-3.png">
 
 ### Authors
 Sean Pierce, Tanner Eustice
