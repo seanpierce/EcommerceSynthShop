@@ -31,7 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'faker', github: 'stympy/faker'
-gem 'rails_admin', '~> 1.2'
+gem 'rails_admin', '~> 2.0'
 gem 'devise'
 gem 'stripe'
 gem 'nokogiri'
